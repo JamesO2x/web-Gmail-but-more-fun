@@ -1,0 +1,216 @@
+@-moz-document domain("mail.google.com") {
+    /* 
+    Gmail, but more Fun!
+    CSS by JamesO2
+    
+    https://ko-fi.com/jamesorthii
+    If you like my work, consider supporting me on Ko-Fi.
+    
+    Last Updated: 2021.12.11
+    
+    Some code concepts borrowed from this page:
+    [How I Fixed Gmail’s UX and Saved My Sanity | by Kelli Borgonia | Modus]
+    https://modus.medium.com/gmail-ux-sucks-so-i-fixed-it-for-my-own-sanity-b6f33898ebe3
+    */
+    
+    /* 
+        This style adds some more color to GMAIL by using Gmail's logo colors for different design elements. It also attempts to look more like the older Inbox app that Google killed.
+        Intended to work best with the default Gmail theme.
+    
+        List of all Changes:
+        + Top bar and search uses Red color.
+        + Custom pixel-art GMAIL logo.
+        + SVG Icons are white (to improve contrast).
+        + Mail and Meet headers on left column are hidden.
+        + Scrollbars use green Color.
+        + I added some slight contrast between the different columns, to help them be more distinguishable.
+        + Added alternating line color for inboxes, to help distinguish emails a bit better.
+    
+        Due to the fast-moving nature of live websites, it's possible that changes made by Google will break these style rules in the future. I will try to keep this up-to-date, but if you have any issues, temporarily disable this style and please report any bugs to the github page.
+    */
+    
+    
+    /* ///////////////////////////////////////////////// */
+    /* Scrollbars */
+    * {scrollbar-color: #34a853 #ccc;}
+    
+    /* ///////////////////////////////////////////////// */
+    /* Change LOGO */
+    img.gb_tc {
+        /* Thanks: https://stackoverflow.com/questions/2182716/is-it-possible-to-set-the-equivalent-of-a-src-attribute-of-an-img-tag-in-css */
+        background: no-repeat   url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG0AAAAoCAYAAAD0bXSJAAAEIUlEQVR4nO2av48TRxTHP4tMhSKZIm2yCCVNUhApoqAIRtDnLopEESRMQxuuTQr7CkR55i84X4mEQug5nZMiRShwlA4p0lLTGCGUIkib4u27nR3P/rK99mLNR7Ls3X07M37ffW/ejA0ej8fj8Xg8Hk9VAvtEHMdxxiAI5mxWwbr62UY6+kGd+MfFTzMGen5VTtX23h+fbbSfbebUQXEcx7ZgJlf+eSU3LOjUPLFMOtf/86JVoAPlggG8/PoLznfP1Y4ItX994zKdT97y0Q/5tu+PzxLHceyFK6ZTbpLl9Y3LQHk6M8XyrJbaoil54m1aLKu+cREm71HDQ2mEIAgWF02xxWtpZPWB28AloJucmwFTYAwcbWhcLkLgSfL5GjLOHjAAfgOGS4umtFSsEDhEvjSIAyLjWi959YE7tCP6+sjDBXAVeEo61gjgzGbGtRZC4IT0y+4CF4xXQCpUD9jZzDDnGCMZYAL85TI4jbRfvrkPwHe//7yOgc3x6N+LABQUl3U5QYSbkqYZmzHinKu0J0VGwFdFBqeivfhsN3NhXeKpWKN3XwIrE62PCBaRL5gSUT0tdpOXy77omstuVjKuXObmtHWJZ4u1Yn5M3ocs6BjEsU+QSH1Idm6MkCjdZ37eBBgBe1Z7LrsoGaMZ5drvDEnpc+QWIrZ4d/9+kGdai4bFAvnSOpE/XbKdHuLsneR4khyHiLNBorqLiKuV3j3gjWETAi9II2xqjHMMnEeENvvNjdjS6lHF+/zwFrB4lfjxsz8BGD36fqH7a6AlfUR+lPUL7o8QcRRNsxeM9kZINA9J5yB1ch+JKL1u9neECDqzbA8Q8SplhVolfxAEQd31mIpl3tsCDguuTciKBpKmTIcOyaZgMyrGiAhdUsGHpKLMLNtLSVs7yXEptddpVXc+TLHq9rEk6pSQNB3Z7DvOhcgC3NXeNKcPcKfgCBFDRdP2B2QX+HZEV2LhxXWeeBsUS9EFdIg4yI4aSNOWyT1ENHttVJayXNftczukuxwR8CvpnFZZLGXpHRFbvJbs0B8hT/UAt2guNN2dNDCeg+R9n/kHZow7wnNZ2Y5IkLCq9pZkRHbProwBaSpbpuJ0odUmuCO8+DcxB9u6jWWucYZI4eFKQ10kCtSZdxoai2KPYUB23VaJlW0Yt5AJItwBUlr3k3P2hjGIY/eonkrrMEva7SGpdwK8QrbOdD1Wa17bZtFAJvwpEknfMv9Uq0P3aHaHfxdJ2bfJrhG1iq2Swk/ZdtFAxFBH9Uj3/qYUL8AjHP9WMyi6ds06niVjGJLu1kyMvs25ztXvGGMNt3WildRCTaS/OtTZnM5lWwuRreYMSLl+/NO5TY+F5zcft2Wd12oykbZJ4Z7ffLyxvj80Sv8WnjFeMgqabNvj8Xg8Ho/H4/G4+B9kAVQp/q04HwAAAABJRU5ErkJggg==');    
+        width: 0!important;
+        height: 0!important;
+        padding: 20px 55px;
+    }
+    
+    /* ///////////////////////////////////////////////// */
+    /* Header Bar ///////////////////////////////////// */
+    .gb_Fd  {
+        background-color: #db352a;
+        color: #fce8e6;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    }
+    
+    
+    /* ///////////////////////////////////////////////// */
+    /* Header SVGs //////////////////////////////////// */
+    .gb_Fd * * svg {
+        /* This little trick will apply the color all SVG several layers deep.     */
+        fill: #fce8e6;
+        color: #fce8e6;
+    }
+    
+    
+    /* ///////////////////////////////////////////////// */
+    /* Search Bar ///////////////////////////////////// */
+    #aso_search_form_anchor, input.gb_gf {
+        background: #9f2a1f !important;
+        color: #fff !important;
+    }
+    #aso_search_form_anchor svg {
+        color: #fff !important;
+    }
+    
+    input.gb_8e {     /* This is the search box */
+        color: #fff !important;
+    }
+    input#gs_taif50 {    /* This is the ID for the auto-complete text */
+        color: rgba(255,255,255,0.5) !important;
+    }
+    
+    /* ///////////////////////////////////////////////// */
+    /* Main Flex Background  ////////////////////////// */
+    .no {
+        background: #eee;
+    }
+    
+    /* ///////////////////////////////////////////////// */
+    /* Left Column //////////////////////////////////// */
+    .aeN, .pp, .aic, .aib, .Xa {background: #ddd;}
+    .W9 { /* Mail Banner */
+        display: none !important;
+        /* background: #d6e5ff !important; */
+    }
+    .X9 {   /* Meet Banner */
+        display: none !important;
+    } 
+    .TK {   /* Separator between groups */
+        background: #fff; 
+        margin: 14px 8px;
+        margin-top: 0;
+        padding: 0;
+    }
+    .TN {
+        border-bottom: 1px dashed #999898;
+    }
+    
+    
+    
+    /* ///////////////////////////////////////////////// */
+    /* Alternating Row Colors ///////////////////////// */
+    tr.zA {background: #f5f5f5;}
+    tr.zA:nth-child(odd) {background: #e3e3e3;}
+    
+    /* ///////////////////////////////////////////////// */
+    /*--- #6. Even MORE line-height for Emails ---*/
+    .Cp tr{
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    
+    /* ///////////////////////////////////////////////// */
+    /* Add space between sidebar labels /////////////// */
+    .aim, .ain {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 0;
+        margin-left: -10px;
+        margin-right: 10px;
+    }
+    
+    
+    /* ///////////////////////////////////////////////// */
+    /* Adjust Compose Button Margin /////////////////// */
+    .z0, .aic {
+        margin: 4px 8px!important;
+        padding: 0;
+    }
+    .aeN .z0>.L3{
+        width: 100%;
+        letter-spacing: .2rem;
+        /*  background-color: #617073; */
+        background-color: #4285f4;
+        color: white;
+    }
+    .aeN .z0 > .L3:before{
+        color: white;
+        /* Add custom Pencil icon */
+        background: no-repeat center url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAG5JREFUOI2dk0EOwCAIBGf5/5/pyQZbbAFPmDDjhohoHHf3VUsSgCZwlJQE7u6SlEo6L2eST8Ep9ibtwE/JcQZfcJSkCTrwS9CFN8EEvgVTGMDWNCcwgK0Ep6Y/ua0ik1S+usVLlFT3JF+QIgxwAZa0UBmKCHvgAAAAAElFTkSuQmCC')
+    }
+    
+    
+    /* ///////////////////////////////////////////////// */
+    /* Hide Sidebar Label Icons /////////////////////// */
+    .zw .TK .qj.qr{
+        display: none;
+        margin: 0;
+        margin-right: -20px;
+    }
+    
+    
+    /* NOTE: Customize this image and section later. */
+    /*--- #11. Bring back the delightful cleared inbox graphic ---*/
+    .DVI7hd .aRu{
+      background-image: url('https://res.cloudinary.com/airship/image/upload/f_auto/v1553218540/media/airship-unicorny_gpgyga.png');
+      background-size: 240px auto;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 200px;
+      margin-top: 40px;
+    }
+    /* Hide the text */
+    .DVI7hd .aRu .aRv,
+    .DVI7hd .aRu .aRv + p,
+    .DVI7hd .aRu .aRv + p + p {
+      display: none;
+    }
+    .aRs {background: none;} /* This is the background behind the image. */
+    
+    /*--- #12. Use "Product Sans" in the sidebar ---*/
+    /* Set Sidebar Label Font */
+    .TO .nU>.n0, .TO.NQ .nU>.n0, 
+    .TO.nZ .nU>.n0, .ah9>.CJ, 
+    .n3>.CL>.CK{
+      font-family: 'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+      font-weight: 500;
+      font-size: .85rem;
+      color: #333;
+    }
+    
+    /* Status Bar Footer thing at the bottom */
+    div.l2 {
+        margin: 0;
+        opacity: 0.2;
+    }
+    div.l2:hover {
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    }
+    
+    /* /////////////////////////////////////////////// */
+    /* Tabs ///////////////////////////////////////// */
+    /* NOTE: Some of these IDs use a colon, which breaks css. You can replace a ":" in an ID with "\3A " (space included) to get the proper ID */
+    
+    /* Tab: Updates */
+    /* 
+    #\3A 2c:before {
+        content: "Notifications : ";
+    }
+    */
+    
+    /* Simplify "More" */
+    .n6 span.ait {display: none;}
+    #\3A 5f .CJ:after {content: "...";}
+    
+    }

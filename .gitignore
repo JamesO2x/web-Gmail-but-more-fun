@@ -1,0 +1,3 @@
+# Ignore Aseprite files.
+*.aseprite
+*wip/*
