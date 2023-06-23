@@ -6,7 +6,7 @@ CSS by JamesO2
 https://ko-fi.com/jamesorthii
 If you like my work, consider supporting me on Ko-Fi.
 
-Last Updated: 2021.12.11
+Last Updated: 2023.06.23
 
 Some code concepts borrowed from this page:
 [How I Fixed Gmail’s UX and Saved My Sanity | by Kelli Borgonia | Modus]
@@ -34,19 +34,36 @@ https://modus.medium.com/gmail-ux-sucks-so-i-fixed-it-for-my-own-sanity-b6f33898
 /* Scrollbars */
 * {scrollbar-color: #34a853 #ccc;}
 
-/* ///////////////////////////////////////////////// */
-/* Change LOGO */
-img.gb_zc {
-    /* Thanks: https://stackoverflow.com/questions/2182716/is-it-possible-to-set-the-equivalent-of-a-src-attribute-of-an-img-tag-in-css */
-    background: no-repeat   url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG0AAAAoCAYAAAD0bXSJAAAEIUlEQVR4nO2av48TRxTHP4tMhSKZIm2yCCVNUhApoqAIRtDnLopEESRMQxuuTQr7CkR55i84X4mEQug5nZMiRShwlA4p0lLTGCGUIkib4u27nR3P/rK99mLNR7Ls3X07M37ffW/ejA0ej8fj8Xg8Hk9VAvtEHMdxxiAI5mxWwbr62UY6+kGd+MfFTzMGen5VTtX23h+fbbSfbebUQXEcx7ZgJlf+eSU3LOjUPLFMOtf/86JVoAPlggG8/PoLznfP1Y4ItX994zKdT97y0Q/5tu+PzxLHceyFK6ZTbpLl9Y3LQHk6M8XyrJbaoil54m1aLKu+cREm71HDQ2mEIAgWF02xxWtpZPWB28AloJucmwFTYAwcbWhcLkLgSfL5GjLOHjAAfgOGS4umtFSsEDhEvjSIAyLjWi959YE7tCP6+sjDBXAVeEo61gjgzGbGtRZC4IT0y+4CF4xXQCpUD9jZzDDnGCMZYAL85TI4jbRfvrkPwHe//7yOgc3x6N+LABQUl3U5QYSbkqYZmzHinKu0J0VGwFdFBqeivfhsN3NhXeKpWKN3XwIrE62PCBaRL5gSUT0tdpOXy77omstuVjKuXObmtHWJZ4u1Yn5M3ocs6BjEsU+QSH1Idm6MkCjdZ37eBBgBe1Z7LrsoGaMZ5drvDEnpc+QWIrZ4d/9+kGdai4bFAvnSOpE/XbKdHuLsneR4khyHiLNBorqLiKuV3j3gjWETAi9II2xqjHMMnEeENvvNjdjS6lHF+/zwFrB4lfjxsz8BGD36fqH7a6AlfUR+lPUL7o8QcRRNsxeM9kZINA9J5yB1ch+JKL1u9neECDqzbA8Q8SplhVolfxAEQd31mIpl3tsCDguuTciKBpKmTIcOyaZgMyrGiAhdUsGHpKLMLNtLSVs7yXEptddpVXc+TLHq9rEk6pSQNB3Z7DvOhcgC3NXeNKcPcKfgCBFDRdP2B2QX+HZEV2LhxXWeeBsUS9EFdIg4yI4aSNOWyT1ENHttVJayXNftczukuxwR8CvpnFZZLGXpHRFbvJbs0B8hT/UAt2guNN2dNDCeg+R9n/kHZow7wnNZ2Y5IkLCq9pZkRHbProwBaSpbpuJ0odUmuCO8+DcxB9u6jWWucYZI4eFKQ10kCtSZdxoai2KPYUB23VaJlW0Yt5AJItwBUlr3k3P2hjGIY/eonkrrMEva7SGpdwK8QrbOdD1Wa17bZtFAJvwpEknfMv9Uq0P3aHaHfxdJ2bfJrhG1iq2Swk/ZdtFAxFBH9Uj3/qYUL8AjHP9WMyi6ds06niVjGJLu1kyMvs25ztXvGGMNt3WildRCTaS/OtTZnM5lWwuRreYMSLl+/NO5TY+F5zcft2Wd12oykbZJ4Z7ffLyxvj80Sv8WnjFeMgqabNvj8Xg8Ho/H4/G4+B9kAVQp/q04HwAAAABJRU5ErkJggg==');    
-    width: 0!important;
-    height: 0!important;
-    padding: 20px 55px;
-}
 
 /* ///////////////////////////////////////////////// */
 /* Header Bar ///////////////////////////////////// */
-.gb_Md  {
+/* 
+    Include multiple elements here to future-proof.
+    Google likes to updte often and break the header.
+    Each new update seems to increment the .gb_t* class by one letter.
+    We can use the follwing code to pre-empt these changes.
+
+    [class^="gb_t"]
+
+    This selects any class that begins with gb_t, and thus should be
+    future proof. Its effectively the same as a regex. It will trigger
+    the same as if we did multiple class selections like:
+
+    .gb_ta,
+    .gb_tb,
+    .gb_tc,
+    .gb_td,
+    .gb_te,
+    .gb_tf,
+    ...
+
+    Likewise, use this code to find a substring in a class anywhere, 
+    not just at the beginning:
+
+    [class*="gb_t"]
+*/
+
+[class^="gb_t"] {
     background-color: #db352a;
     color: #fce8e6;
     box-shadow: 0 0 20px rgba(0, 0, 0, .5);
@@ -55,16 +72,26 @@ img.gb_zc {
 
 /* ///////////////////////////////////////////////// */
 /* Header SVGs //////////////////////////////////// */
-.gb_Md * * svg {
+[class^="gb_t"] * * svg {
     /* This little trick will apply the color all SVG several layers deep.     */
     fill: #fce8e6;
     color: #fce8e6;
 }
 
+/* ///////////////////////////////////////////////// */
+/* Change LOGO */
+img[class^="gb_P"] {
+    /* Thanks: https://stackoverflow.com/questions/2182716/is-it-possible-to-set-the-equivalent-of-a-src-attribute-of-an-img-tag-in-css */
+    background: no-repeat   url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG0AAAAoCAYAAAD0bXSJAAAEIUlEQVR4nO2av48TRxTHP4tMhSKZIm2yCCVNUhApoqAIRtDnLopEESRMQxuuTQr7CkR55i84X4mEQug5nZMiRShwlA4p0lLTGCGUIkib4u27nR3P/rK99mLNR7Ls3X07M37ffW/ejA0ej8fj8Xg8Hk9VAvtEHMdxxiAI5mxWwbr62UY6+kGd+MfFTzMGen5VTtX23h+fbbSfbebUQXEcx7ZgJlf+eSU3LOjUPLFMOtf/86JVoAPlggG8/PoLznfP1Y4ItX994zKdT97y0Q/5tu+PzxLHceyFK6ZTbpLl9Y3LQHk6M8XyrJbaoil54m1aLKu+cREm71HDQ2mEIAgWF02xxWtpZPWB28AloJucmwFTYAwcbWhcLkLgSfL5GjLOHjAAfgOGS4umtFSsEDhEvjSIAyLjWi959YE7tCP6+sjDBXAVeEo61gjgzGbGtRZC4IT0y+4CF4xXQCpUD9jZzDDnGCMZYAL85TI4jbRfvrkPwHe//7yOgc3x6N+LABQUl3U5QYSbkqYZmzHinKu0J0VGwFdFBqeivfhsN3NhXeKpWKN3XwIrE62PCBaRL5gSUT0tdpOXy77omstuVjKuXObmtHWJZ4u1Yn5M3ocs6BjEsU+QSH1Idm6MkCjdZ37eBBgBe1Z7LrsoGaMZ5drvDEnpc+QWIrZ4d/9+kGdai4bFAvnSOpE/XbKdHuLsneR4khyHiLNBorqLiKuV3j3gjWETAi9II2xqjHMMnEeENvvNjdjS6lHF+/zwFrB4lfjxsz8BGD36fqH7a6AlfUR+lPUL7o8QcRRNsxeM9kZINA9J5yB1ch+JKL1u9neECDqzbA8Q8SplhVolfxAEQd31mIpl3tsCDguuTciKBpKmTIcOyaZgMyrGiAhdUsGHpKLMLNtLSVs7yXEptddpVXc+TLHq9rEk6pSQNB3Z7DvOhcgC3NXeNKcPcKfgCBFDRdP2B2QX+HZEV2LhxXWeeBsUS9EFdIg4yI4aSNOWyT1ENHttVJayXNftczukuxwR8CvpnFZZLGXpHRFbvJbs0B8hT/UAt2guNN2dNDCeg+R9n/kHZow7wnNZ2Y5IkLCq9pZkRHbProwBaSpbpuJ0odUmuCO8+DcxB9u6jWWucYZI4eFKQ10kCtSZdxoai2KPYUB23VaJlW0Yt5AJItwBUlr3k3P2hjGIY/eonkrrMEva7SGpdwK8QrbOdD1Wa17bZtFAJvwpEknfMv9Uq0P3aHaHfxdJ2bfJrhG1iq2Swk/ZdtFAxFBH9Uj3/qYUL8AjHP9WMyi6ds06niVjGJLu1kyMvs25ztXvGGMNt3WildRCTaS/OtTZnM5lWwuRreYMSLl+/NO5TY+F5zcft2Wd12oykbZJ4Z7ffLyxvj80Sv8WnjFeMgqabNvj8Xg8Ho/H4/G4+B9kAVQp/q04HwAAAABJRU5ErkJggg==');    
+    width: 0!important;
+    height: 0!important;
+    padding: 20px 55px;
+}
+
 
 /* ///////////////////////////////////////////////// */
 /* Search Bar ///////////////////////////////////// */
-#aso_search_form_anchor, input.gb_gf {
+#aso_search_form_anchor, input.gb_pf {
     background: #9f2a1f !important;
     color: #fff !important;
 }
@@ -72,7 +99,7 @@ img.gb_zc {
     color: #fff !important;
 }
 
-input.gb_8e {     /* This is the search box */
+input.gb_pf {     /* This is the search box */
     color: #fff !important;
 }
 input#gs_taif50 {    /* This is the ID for the auto-complete text */
@@ -163,7 +190,7 @@ div#\:29 { margin-bottom: 80px;} /* Adds some breathing room for the Compose But
 
 /* NOTE: Customize this image and section later. */
 /*--- #11. Bring back the delightful cleared inbox graphic ---*/
-.DVI7hd .aRu{
+.aRs .aRu{
   background-image: url('https://res.cloudinary.com/airship/image/upload/f_auto/v1553218540/media/airship-unicorny_gpgyga.png');
   background-size: 240px auto;
   background-repeat: no-repeat;
@@ -172,9 +199,9 @@ div#\:29 { margin-bottom: 80px;} /* Adds some breathing room for the Compose But
   margin-top: 40px;
 }
 /* Hide the text */
-.DVI7hd .aRu .aRv,
-.DVI7hd .aRu .aRv + p,
-.DVI7hd .aRu .aRv + p + p {
+.aRs .aRu .aRv,
+.aRs .aRu .aRv + p,
+.aRs .aRu .aRv + p + p {
   display: none;
 }
 .aRs {background: none;} /* This is the background behind the image. */
